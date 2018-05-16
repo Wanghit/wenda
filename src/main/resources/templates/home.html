@@ -1,5 +1,26 @@
 <html>
 <body>
 ${value1}
+<#list colors as color>
+colors  ${color_index}:${color}
+</#list>
+<#list map?keys as key>
+${key}:${map[key]}
+</#list>
+${user.name}
+${user.toString()}
+<#assign title="nowcoder">
+${title}
+<#include ("header.html") >
+<!--与变量定义位置无关-->
+<#macro render_color index color>
+Color Render Macro ${index}  ${color}
+</#macro>
+<#list colors as color>
+<@render_color index=color_index color=color/>
+</#list>
+<#assign hello="hello">
+<#assign hello1="${hello} wprld">
+${hello1}
 </body>
 </html>
